@@ -1,0 +1,63 @@
+// Variables
+// =========
+
+// BEM
+// ---
+$b: '.foo' !default; // block name
+$e: '&__' !default; // element separator
+$m: '&--' !default; // modifier separator
+
+// Colors
+// ------
+// Basics
+$color-black: #000 !default;
+$color-white: #fff !default;
+$color-silver: silver !default;
+$color-gray: gray !default;
+// Brands
+$color-facebook: #3B5998;
+$color-twitter: #55acee;
+$color-googleplus: #f44336;
+$color-linkedin: #0077B5;
+$color-instagram: #3f729b;
+$color-tumblr: #35465c;
+$color-pinterest: #bd081c;
+// Graphic identity
+// Settings
+$color-primary: $color-gray;
+$color-accent: $color-silver;
+$color-text: $color-black;
+$color-background: $color-white;
+$color-border: $color-silver;
+
+// Sizes
+// -----
+$width-xs: 480px !default;
+$width-s: 640px !default;
+$width-m: 800px !default;
+$width-l: 960px !default;
+$width-xl: 1120px !default;
+$width-gutter: 20px !default;
+$height-header: 80px !default;
+
+// Media queries
+// -------------
+$breakpoints: (
+  'xs': (max-width: $width-xs),
+  's': (max-width: $width-s),
+  'm': (max-width: $width-m),
+  'l': (max-width: $width-l),
+  'xl': (max-width: $width-xl),
+) !default;
+
+// Ratios
+// ------
+$ratio-gold: 1.618;
+$ratio-gold-inverse: 0.618;
+$ratio-half: 0.5;
+$ratio-third: 0.333333;
+$ratio-quarter: 0.25;
+$ratio-fifth: 0.2;
+$ratio-seventh: 0.142857;
+$ratio-eighth: 0.125;
+$ratio-tenth: 0.1;

@@ -1,0 +1,50 @@
+// Media object
+// ============
+// A figure and its illustrative text side by side
+/*
+  <div class="media">
+    <figure class="media__figure"></figure>
+    <article class="media__body"></article>
+  </div>
+*/
+
+$b: '.media';
+
+#{$b} {
+  align-items: flex-start;
+  display: flex;
+
+  // Figure
+  // Example: image container
+
+  &#{$e}figure {
+    margin: 0;
+  }
+
+  // Body
+  // Example: text container
+
+  &#{$e}body {
+    flex: 1;
+  }
+
+  // Vertical alignment
+  // Default: top
+
+  &#{$m}center {
+    align-items: center;
+  }
+
+  &#{$m}bottom {
+    align-items: flex-end;
+  }
+
+  // Figure side
+  // Default: left
+
+  &#{$m}right {
+    #{$b}#{$e}figure {
+      order: 1;
+    }
+  }
+}

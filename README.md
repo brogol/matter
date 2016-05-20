@@ -6,6 +6,22 @@ My atomic library
 [![Styling](https://img.shields.io/badge/styling-Sass-C6538C.svg?style=flat)](http://sass-lang.com/)
 [![Templating](https://img.shields.io/badge/templating-Nunjucks-brightgreen.svg?style=flat)](https://mozilla.github.io/nunjucks/)
 
+## Install
+### Requirements
+- [Node.js](https://nodejs.org)
+- [Npm](https://www.npmjs.com/) `npm install -g npm`
+- [Gulp](http://gulpjs.com/) `npm install -g gulp`
+
+### Dependencies
+```
+npm install
+```
+
+## Dev
+```
+gulp
+```
+
 ## BEM
 Matter uses the *block, element and modifier* (BEM) methodology. The default is `.block__element--modifier` but you can choose your own beming style.
 
@@ -13,16 +29,16 @@ In `sass/core/_variables.scss` we have define `$b`, `$e` and `$m` for this usage
 
 ```
 $b: '.narwhal'; // block name
-$e: '&__'; // element separator
-$m: '&--'; // modifier separator
+$e: '__'; // element separator
+$m: '--'; // modifier separator
 
 #{$b} {
   float: left;
 
-    #{$e}horn {
+    &#{$e}horn {
       display: block;
     
-      #{$m}pretty-big {
+      &#{$m}pretty-big {
         font-size: large;
     }
   }

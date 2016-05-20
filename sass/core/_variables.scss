@@ -4,50 +4,58 @@
 // BEM
 // ---
 $b: '.foo' !default; // block name
-$e: '&__' !default; // element separator
-$m: '&--' !default; // modifier separator
+$e: '__' !default; // element separator
+$m: '--' !default; // modifier separator
 
 // Colors
 // ------
-// Basics
+// Calibration
 $color-black: #000 !default;
 $color-white: #fff !default;
-$color-silver: silver !default;
-$color-gray: gray !default;
 // Brands
-$color-facebook: #3B5998;
-$color-twitter: #55acee;
-$color-googleplus: #f44336;
-$color-linkedin: #0077B5;
-$color-instagram: #3f729b;
-$color-tumblr: #35465c;
+$color-facebook: #3b5998;
+$color-googleplus: #dc4e41;
+$color-instagram: #e1306c;
+$color-linkedin: #0077b5;
 $color-pinterest: #bd081c;
+$color-tumblr: #35465c;
+$color-twitter: #55acee;
+$color-whatsapp: #43d854;
+$color-wordpress: #21759b;
+$color-youtube: #cd201f;
 // Graphic identity
-// Settings
-$color-primary: $color-gray;
-$color-accent: $color-silver;
-$color-text: $color-black;
-$color-background: $color-white;
-$color-border: $color-silver;
+$color-primary: #935593 !default;
+$color-accent: complement($color-primary) !default;
+$color-text: hsl(hue($color-primary), 50, 10) !default;
+$color-bg-body: hsl(hue($color-primary), 50, 97) !default;
+$color-bg-content: $color-white !default;
+$color-border: darken($color-white, 20%) !default;
 
 // Sizes
 // -----
+$width-xxs: 320px !default;
 $width-xs: 480px !default;
 $width-s: 640px !default;
 $width-m: 800px !default;
 $width-l: 960px !default;
 $width-xl: 1120px !default;
-$width-gutter: 20px !default;
-$height-header: 80px !default;
+$width-xxl: 1280px !default;
+$width-xxxl: 1440px !default;
+$width-border: 1px !default;
+$width-space: 1.25em !default;
+$width-radius: 0.25em !default;
 
 // Media queries
 // -------------
 $breakpoints: (
-  'xs': (max-width: $width-xs),
-  's': (max-width: $width-s),
-  'm': (max-width: $width-m),
-  'l': (max-width: $width-l),
-  'xl': (max-width: $width-xl),
+  'xxs': (min-width: $width-xxs),
+  'xs': (min-width: $width-xs),
+  's': (min-width: $width-s),
+  'm': (min-width: $width-m),
+  'l': (min-width: $width-l),
+  'xl': (min-width: $width-xl),
+  'xxl': (min-width: $width-xxl),
+  'xxxl': (min-width: $width-xxxl),
 ) !default;
 
 // Ratios

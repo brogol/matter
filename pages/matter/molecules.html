@@ -1,0 +1,52 @@
+---
+title: Molecules
+description: List of molecules
+
+molecules:
+
+  Hero unit:
+    <div class="media media--center">
+      <figure class="media__figure">
+        image
+      </figure>
+      <article class="media__body">
+        texte
+      </article>
+    </div>
+
+  Label:
+    <span class="label">
+      <span class="label__text">Label</span>
+      <i class="label__icon">x</i>
+    </span>
+    <span class="label label--straight label--primary label--clickable">
+      <i class="label__icon">x</i>
+      <span class="label__text">Label</span>
+    </span>
+    <button class="label label--round label--accent">
+      <span class="label__text">Label</span>
+    </button>
+---
+
+{% extends "layout.html" %}
+
+{% block content %}
+  {% for title, body in molecules %}
+      <div>
+        <code><small>{{ title | escape }}</small></code><br>
+        <div>
+          {% if body[0] %}
+            {{ body | safe }}
+          {% else %}
+            <dl>
+            {% for dt, dd in body %}
+              <dt><code><small>{{ dt | escape }}</small></code></dt>
+              <dd>{{ dd | safe }}</dd>
+            {% endfor %}
+            </dl>
+          {% endif %}
+        </div>
+        &macr;
+      </div>
+  {% endfor %}
+{% endblock %}

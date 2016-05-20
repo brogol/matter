@@ -1,0 +1,12 @@
+// hr
+// ==
+// Horizontal rule
+/*
+  <hr>
+*/
+
+hr {
+  background: $color-border;
+  border: 0;
+  height: 1px;
+}

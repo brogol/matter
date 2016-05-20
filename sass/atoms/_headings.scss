@@ -1,0 +1,26 @@
+// headings
+// ========
+// h1 to h6
+/*
+  <h1>
+  <h2>
+  <h3>
+  <h4>
+  <h5>
+  <h6>
+*/
+
+h1 {
+  font-size: 2em;
+  margin: 0 auto $width-space / 3;
+}
+
+h2 {
+  font-size: 1.5em;
+  margin: 0 auto $width-space / 2;
+}
+
+h3, h4, h5, h6 {
+  font-size: 1em;
+  margin: 0 auto $width-space;
+}

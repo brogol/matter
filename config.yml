@@ -1,0 +1,12 @@
+---
+title: Matter
+description: My atomic library
+lang: fr
+baseUrl: /
+pages:
+  - slug: matter/
+    name: Matter
+  - slug: matter/atoms/
+    name: Atoms
+  - slug: matter/molecules/
+    name: Molecules

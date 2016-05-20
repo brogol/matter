@@ -1,0 +1,32 @@
+// Pricing table
+// =============
+// A list of pricing plans
+/*
+  <div class="pricing">
+    <div class="pricing__item"></div>
+    ...
+  </div>
+*/
+
+$b: '.pricing';
+
+#{$b} {
+  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+
+  // Item
+  // Example: a pricing panel
+
+  &#{$e}item {
+    flex-grow: 1;
+    margin: $width-space / 2;
+    position: relative;
+
+    &#{$m}featured {
+      box-shadow: 0 0 2*$width-border $width-border $color-primary;
+      margin: -($width-space / 2);
+      z-index: 1;
+    }
+  }
+}

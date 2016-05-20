@@ -1,0 +1,28 @@
+// body
+// ====
+// Document's body
+/*
+  <body>
+*/
+
+body {
+  background-color: $color-bg-body;
+  color: $color-text;
+  font-size: 87.5%;
+  line-height: 1.5;
+
+  @include respond-to('xs') {
+    font-size: 100%;
+    line-height: 1.618;
+  }
+
+  @include respond-to('m') {
+    font-size: 112.5%;
+    line-height: 1.736;
+  }
+
+  @include respond-to('xl') {
+    font-size: 125%;
+    line-height: 1.854;
+  }
+}

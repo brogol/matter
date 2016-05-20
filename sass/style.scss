@@ -9,9 +9,17 @@
 // Atoms
 // -----
 @import "atoms/normalize";
+@import "atoms/body";
+@import "atoms/headings";
+@import "atoms/hr";
 
 // Molecules
 // ---------
+@import "molecules/hero";
+@import "molecules/label";
+@import "molecules/media";
+@import "molecules/panel";
 
 // Organisms
 // ---------
+@import "organisms/pricing";

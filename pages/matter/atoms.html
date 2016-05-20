@@ -1,0 +1,124 @@
+---
+title: Atoms
+description: List of atoms
+atoms:
+
+  Headings <h1>…<h6>:
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+
+  Definition list <dl><dt><dd>:
+    <dl>
+      <dt>Definition term</dt>
+      <dd>Definition description</dd>
+    </dl>
+
+  Figure caption <figure><figcaption>:
+    <figure>
+      &otimes;
+      <figcaption>Figcaption</figcaption>
+    </figure>
+
+  Horizontal rule <hr>:
+    <hr>
+
+  Unordered list <ul><li>:
+    <ul>
+      <li>List item</li>
+      <li>List item
+        <ul>
+          <li>Nested item
+            <ul>
+              <li>Nested item</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>List item</li>
+    </ul>
+
+  Ordered list <ol><li>:
+    <ol>
+      <li>List item</li>
+      <li>List item
+        <ol>
+          <li>Nested item</li>
+        </ol>
+      </li>
+      <li>List item</li>
+    </ol>
+
+  Paragraph of text <p>:
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat ultricies semper. Phasellus cursus ligula vehicula cursus efficitur. Aenean egestas ultrices ornare. Duis porttitor, elit ut dapibus sollicitudin, augue purus pellentesque nisl, nec gravida magna enim in sem. Sed at risus viverra massa accumsan laoreet in laoreet nulla. Nullam eget metus id augue congue pretium. Duis iaculis, ligula eu aliquam imperdiet, augue magna malesuada enim, ac aliquet libero mauris in urna. Nunc lobortis, neque id volutpat faucibus, est justo volutpat felis, at mollis felis leo quis neque. Maecenas lacinia, diam nec egestas venenatis, dolor tellus commodo tellus, sed sollicitudin felis arcu eget ex. Integer venenatis ultrices dui, sit amet vulputate dolor vehicula ultrices. Praesent quis volutpat lorem. Donec nibh quam, accumsan ac sapien efficitur, semper convallis lacus. Maecenas sed lorem et nibh faucibus porta.</p>
+
+  Preformatted text <pre>:
+    <pre>Lorem ipsum dolor sit amet.</pre>
+
+  Ruby <ruby><rb><rp><rt><rtc>:
+    <ruby>
+      <rb>好</rb>
+      <rp>(</rp><rt>hăo</rt><rp>)</rp>
+      <rtc>good</rtc>
+    </ruby>
+
+  Inline elements:
+    <a>: <a href="#">hyperlink</a>
+    <abbr>: <abbr title="Cascading Style Sheets">CSS</abbr>
+    <b>: <b>b element</b>
+    <bdi>: <bdi>أبجد هوز</bdi>
+    <bdo>: <bdo dir="rtl">bidirectional override</bdo>
+    <cite>: <cite>citation</cite>
+    <code>: <code>code</code>
+    <del>: <del>deleted</del>
+    <dfn>: <dfn>definition</dfn>
+    <em>: <em>emphasis</em>
+    <i>: <i>i element</i>
+    <ins>: <ins>inserted</ins>
+    <kbd>: <kbd>keyboard input</kbd>
+    <mark>: <mark>mark</mark>
+    <q>: <q>quote</q>
+    <s>: <s>strikethrough</s>
+    <samp>: <samp>sample output</samp>
+    <small>: <small>small text</small>
+    <span>: <span>span</span>
+    <strong>: <strong>strong</strong>
+    <sub>: <sub>subscript</sub>
+    <sup>: <sup>superscript</sup>
+    <time>: <time>time</time>
+    <u>: <u>underline</u>
+    <var>: <var>variable</var>
+
+  Table:
+    table
+
+  Form:
+    form
+    
+---
+
+{% extends "layout.html" %}
+
+{% block content %}
+  {% for title, body in atoms %}
+      <div>
+        <code><small>{{ title | escape }}</small></code><br>
+        <div>
+          {% if body[0] %}
+            {{ body | safe }}
+          {% else %}
+            <dl>
+            {% for dt, dd in body %}
+              <dt><code><small>{{ dt | escape }}</small></code></dt>
+              <dd>{{ dd | safe }}</dd>
+            {% endfor %}
+            </dl>
+          {% endif %}
+        </div>
+        &macr;
+      </div>
+  {% endfor %}
+{% endblock %}

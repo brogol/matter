@@ -10,13 +10,18 @@
     "url": "https://github.com/brogol/matter.git"
   },
   "author": "Brogol",
+  "license": "MIT",
   "homepage": "https://github.com/brogol/matter",
   "devDependencies": {
+    "del": "^2.2.0",
+    "gray-matter": "^2.0.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-data": "^1.2.1",
     "gulp-nunjucks-render": "^2.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.1",
-    "gulp-server-livereload": "^1.7.4"
+    "gulp-server-livereload": "^1.7.4",
+    "rename": "^1.0.3"
   }
 }

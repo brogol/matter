@@ -1,0 +1,105 @@
+/*------------------------------------*\
+    #LABEL
+\*------------------------------------*/
+
+/**
+ * Independant piece of text highlighted by a background color
+ */
+
+/*
+  <span class="label">
+    <span class="label__text"></span>
+    <i class="label__icon"></i>
+  </span>
+*/
+
+$b: '.label';
+
+#{$b} {
+  background: darken(color(white), 50%);
+  border: 0;
+  border-radius: size(radius);
+  color: color(white);
+  display: inline-flex;
+  line-height: ratio(size(line));
+  padding: 0;
+  white-space: nowrap;
+
+  /**
+   * E: text
+   * Example: a string
+   */
+
+  &#{$e}text {
+    margin: 0 em(size(line)/2);
+  }
+
+  /**
+   * E: icon
+   * Optional
+   */
+
+  &#{$e}icon {
+    font-style: normal;
+    margin-left: em(size(line)/2);
+
+    #{$b}#{$e}text + & {
+      margin-left: 0;
+      margin-right: em(size(line)/2);
+    }
+  }
+
+  /**
+   * M: border roundness
+   * Default: size(radius)
+   */
+
+  &#{$m}straight {
+    border-radius: 0;
+  }
+
+  &#{$m}round {
+    border-radius: 3em;
+  }
+
+  /**
+   * M: colors
+   * Default: color(gray)
+   */
+  @each $name, $color in map-merge(map-get($colors, brand), $color-identity) {
+    &#{$m}#{$name} {
+      background-color: $color;
+      color: contrast($color);
+
+      // &:hover {
+      //   background-color: darken($color, 5%);
+      // }
+    }
+  }
+
+  /**
+   * M: button effect
+   * default: disabled (except for <a> and <button>)
+   */
+
+  &#{$m}button {
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      box-shadow: 0 2px 2px rgba(color(black), 0.2);
+    }
+
+    &:active {
+      box-shadow: 0 3px 2px 1px rgba(color(black), 0.2);
+    }
+  }
+
+  @at-root button#{&}, a#{&} {
+    @extend #{$b}#{$m}button;
+  }
+
+  &#{$m}disabled {
+    pointer-events: none;
+  }
+}

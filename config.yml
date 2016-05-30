@@ -6,7 +6,7 @@ baseUrl: /
 pages:
   - slug: matter/
     name: Matter
-  - slug: matter/atoms/
-    name: Atoms
-  - slug: matter/molecules/
-    name: Molecules
+  - slug: matter/global/
+    name: Global
+  - slug: matter/objects/
+    name: Objects

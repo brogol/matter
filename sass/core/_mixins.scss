@@ -1,8 +1,12 @@
-// Mixins
-// ======
+/*------------------------------------*\
+    #MIXINS
+\*------------------------------------*/
 
-// Respond to
-// ----------
+/**
+ * RESPOND-TO
+ * Generate media query from breakpoint
+ */
+
 @mixin respond-to($breakpoint) {
   $raw-query: map-get($breakpoints, $breakpoint);
 
@@ -19,5 +23,21 @@
   } @else {
     @error 'No value found for `#{$breakpoint}`. '
          + 'Please make sure it is defined in `$breakpoints` map.';
+  }
+}
+
+/**
+ * FONT-SMOOTHING
+ * Custom fonts may look better, give it a try
+ */
+
+@mixin font-smoothing($value: on) {
+  @if $value == on {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
   }
 }

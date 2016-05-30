@@ -1,0 +1,129 @@
+/*------------------------------------*\
+    #BUTTON
+\*------------------------------------*/
+
+/**
+ * Click me!
+ */
+
+/*
+  <span class="label">
+    <span class="label__text"></span>
+    <i class="label__icon"></i>
+  </span>
+*/
+
+$b: '.btn';
+
+#{$b} {
+  background-color: contrast(color(text));
+  border: 0;
+  border-radius: size(radius);
+  box-shadow: 0 2px 2px rgba(color(black), 0.2);
+  box-sizing: border-box;
+  color: color(text);
+  cursor: pointer;
+  display: inline-block;
+  padding: em(size(line)/4) em(size(line)/3);
+  text-decoration: none;
+  transition: all 0.1s;
+  // white-space: nowrap;
+
+  &:hover {
+    background: darken(color(white), 5%); 
+  }
+
+  &:active {
+    box-shadow: 0 3px 2px 1px rgba(color(black), 0.2);
+  }
+
+  /**
+   * E: text
+   * Example: a string
+   */
+
+  &#{$e}text {
+    margin: 0 em(size(line)/3);
+    text-transform: uppercase;
+  }
+
+  /**
+   * E: icon
+   * Optional
+   */
+
+  &#{$e}icon {
+    font-style: normal;
+    margin-left: em(size(line)/3);
+
+    #{$b}#{$e}text + & {
+      margin-left: 0;
+      margin-right: em(size(line)/3);
+    }
+  }
+
+  /**
+   * M: border roundness
+   * Default: size(radius)
+   */
+
+  &#{$m}straight {
+    border-radius: 0;
+  }
+
+  &#{$m}round {
+    border-radius: 3em;
+  }
+
+  /**
+   * M: colors
+   * Default: color(text)
+   */
+
+  @each $name, $color in map-merge(map-get($colors, brand), $color-identity) {
+    &#{$m}#{$name} {
+      background-color: $color;
+      color: contrast($color);
+
+      &:hover {
+        background-color: saturate(darken($color, 5%), 10%);
+      }
+
+      &#{$b}#{$m}outline {
+        border-color: $color;
+        color: $color;
+
+        &:hover {
+          background-color: $color;
+          color: contrast($color);
+        }
+      }
+    }
+  }
+
+  /**
+   * M: outline
+   * Default: none
+   */
+
+  &#{$m}outline {
+    background: none;
+    border: size(border) solid;
+    padding: em(size(line)/4 - size(border)) em(size(line)/3);
+  }
+
+ /**
+   * M: size
+   * Default: normal
+   */
+
+  &#{$m}big {
+    font-size: em(size(font)*3/2);
+    padding-bottom: em(size(line)/6);
+    padding-top: em(size(line)/6);
+  }
+
+  &#{$m}small {
+    font-size: em(size(font)*2/3);
+  }
+}

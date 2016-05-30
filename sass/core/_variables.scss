@@ -1,71 +1,80 @@
-// Variables
-// =========
+/*------------------------------------*\
+    #VARIABLES
+\*------------------------------------*/
 
-// BEM
-// ---
-$b: '.foo' !default; // block name
-$e: '__' !default; // element separator
-$m: '--' !default; // modifier separator
+/**
+ * BEM
+ * Choose your naming convention
+ */
 
-// Colors
-// ------
-// Calibration
-$color-black: #000 !default;
-$color-white: #fff !default;
-// Brands
-$color-facebook: #3b5998;
-$color-googleplus: #dc4e41;
-$color-instagram: #e1306c;
-$color-linkedin: #0077b5;
-$color-pinterest: #bd081c;
-$color-tumblr: #35465c;
-$color-twitter: #55acee;
-$color-whatsapp: #43d854;
-$color-wordpress: #21759b;
-$color-youtube: #cd201f;
-// Graphic identity
+$b: '.x' !default; // Block name
+$e: '__' !default; // Element separator
+$m: '--' !default; // Modifier separator
+
+/**
+ * COLORS
+ * Let's get visual
+ */
+
 $color-primary: #935593 !default;
-$color-accent: complement($color-primary) !default;
-$color-text: hsl(hue($color-primary), 50, 10) !default;
-$color-bg-body: hsl(hue($color-primary), 50, 97) !default;
-$color-bg-content: $color-white !default;
-$color-border: darken($color-white, 20%) !default;
 
-// Sizes
-// -----
-$width-xxs: 320px !default;
-$width-xs: 480px !default;
-$width-s: 640px !default;
-$width-m: 800px !default;
-$width-l: 960px !default;
-$width-xl: 1120px !default;
-$width-xxl: 1280px !default;
-$width-xxxl: 1440px !default;
-$width-border: 1px !default;
-$width-space: 1.25em !default;
-$width-radius: 0.25em !default;
-
-// Media queries
-// -------------
-$breakpoints: (
-  'xxs': (min-width: $width-xxs),
-  'xs': (min-width: $width-xs),
-  's': (min-width: $width-s),
-  'm': (min-width: $width-m),
-  'l': (min-width: $width-l),
-  'xl': (min-width: $width-xl),
-  'xxl': (min-width: $width-xxl),
-  'xxxl': (min-width: $width-xxxl),
+$color-identity: (
+  primary:  $color-primary,
+  accent:   complement($color-primary),
+  error:    #e74c3c,
+  success:  #40d47e,
 ) !default;
 
-// Ratios
-// ------
-$ratio-gold: 1.618;
-$ratio-gold-inverse: 0.618;
-$ratio-half: 0.5;
-$ratio-third: 0.333333;
-$ratio-quarter: 0.25;
-$ratio-fifth: 0.2;
-$ratio-seventh: 0.142857;
-$ratio-eighth: 0.125;
-$ratio-tenth: 0.1;
+$color-calibration: (
+  black:      #000,
+  white:      #fff,
+  text:       lighten(black, 20%),
+  bg-body:    darken(white, 3%),
+  bg-content: white,
+  border:     darken(white, 20%),
+  brand:      (
+    facebook:    #3b5998,
+    twitter:     #55acee,
+    // googleplus:  #dc4e41,
+    // instagram:   #e1306c,
+    // linkedin:    #0077b5,
+    // pinterest:   #bd081c,
+    // tumblr:      #35465c,
+    // whatsapp:    #43d854,
+    // wordpress:   #21759b,
+    // youtube:     #cd201f,
+  )
+) !default;
+
+$colors: map-merge($color-calibration, $color-identity);
+
+/**
+ * SIZES
+ * Measure length, width, height
+ */
+$sizes: (
+  line: 24px,
+  font: 16px,
+  gutter: 15px,
+  border: 1px,
+  radius: 0.25em,
+  screen: (
+    phone:   414px,
+    phablet: 640px,
+    tablet:  854px,
+    laptop:  1152px,
+    desktop: 1440px,
+  ),
+) !default;
+
+/**
+ * BREAKPOINTS
+ * Design responsively with media queries
+ */
+$breakpoints: (
+  phone:    (min-width: size(screen, phone)),
+  phablet:  (min-width: size(screen, phablet)),
+  tablet:   (min-width: size(screen, tablet)),
+  laptop:   (min-width: size(screen, laptop)),
+  desktop:  (min-width: size(screen, desktop)),
+) !default;

@@ -1,0 +1,57 @@
+/*------------------------------------*\
+    #VESSEL
+\*------------------------------------*/
+
+/**
+ * A well balanced container for flexible items
+ */
+
+/*
+  <div class="vessel">
+    <div class="vessel__item"></div>
+    <div class="vessel__item"></div>
+    ...
+  </div>
+*/
+
+$b: '.vessel';
+
+#{$b} {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+
+  /**
+   * E: item
+   * A veil of the vessel
+   */
+
+  &#{$e}item {
+    margin: 0;
+  }
+
+  /**
+   * M: vertical alignment
+   * Default: center
+   */
+
+  &#{$m}top {
+    align-items: flex-start;
+  }
+
+  &#{$m}bottom {
+    align-items: flex-end;
+  }
+
+  /**
+   * M: direction
+   * Default: left to right
+   */
+
+  &#{$m}reverse {
+    flex-direction: row-reverse;
+  }
+}

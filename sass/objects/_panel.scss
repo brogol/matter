@@ -1,0 +1,61 @@
+/*------------------------------------*\
+    #PANEL
+\*------------------------------------*/
+
+/**
+ * A vertical block with header and footer
+ */
+
+/*
+  <section class="panel">
+    <header class="panel__header">
+    </header>
+    <div class="panel__body">
+    </div>
+    <footer class="panel__footer">
+    </footer>
+  </section>
+*/
+
+$b: '.panel';
+
+#{$b} {
+  background-color: color(bg-content);
+  border-radius: size(radius);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: size(line);
+  text-align: center;
+
+  /**
+   * E: header
+   * Example : container of the panel's title
+   */
+
+  &#{$e}header {
+    border-bottom: size(border) solid color(border);
+    margin: 0;
+    padding-bottom: size(line);
+  }
+
+  /**
+   * E: body
+   * Example : container of a features' list
+   */
+
+  &#{$e}body {
+    flex-grow: 1;
+  }
+
+  /**
+   * E: footer
+   * Example : container of a button
+   */
+
+  &#{$e}footer {
+    border-top: size(border) solid color(border);
+    margin: 0;
+    padding-top: size(line);
+  }
+}

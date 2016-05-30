@@ -1,0 +1,67 @@
+/*------------------------------------*\
+    #MEDIA
+\*------------------------------------*/
+
+/**
+ * A figure and its illustrative text side by side
+ */
+
+/*
+  <div class="media">
+    <figure class="media__figure"></figure>
+    <div class="media__body"></div>
+  </div>
+*/
+
+$b: '.media';
+
+#{$b} {
+  align-items: flex-start;
+  display: flex;
+
+  /**
+   * E: figure
+   * Example: image container
+   */
+
+  &#{$e}figure {
+    margin: 0;
+    margin-right: em(size(line)/2);
+  }
+
+  /**
+   * E: body
+   * Example: text container
+   */
+
+  &#{$e}body {
+    flex: 1;
+    text-align: left;
+  }
+
+  /**
+   * M: vertical alignment
+   * Default: top
+   */
+
+  &#{$m}center {
+    align-items: center;
+  }
+
+  &#{$m}bottom {
+    align-items: flex-end;
+  }
+
+  /**
+   * M: figure side
+   * Default: left
+   */
+
+  &#{$m}right {
+    #{$b}#{$e}figure {
+      order: 1;
+      margin-left: em(size(line)/2);
+      margin-right: 0;
+    }
+  }
+}

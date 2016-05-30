@@ -53,8 +53,6 @@ gulp.task('sass', function() {
 
 // Nunjucks templating
 gulp.task('render', function() {
-  // Clean destination folder
-  del.sync([config.pages.dest + '/**/*', '!public/assets/**']);
   // Render all pages
   gulp.src(config.pages.src)
     .pipe(data(function (file) {
@@ -65,7 +63,12 @@ gulp.task('render', function() {
       json.site = site.data;
       return json;
     })).on('error', logError)
-    .pipe(nunjucks({path: config.templates.dir +'/'})).on('error', logError)
+    .pipe(nunjucks({
+      path: config.templates.dir +'/',
+      envOptions: {
+        autoescape: false
+      },
+    })).on('error', logError)
     .pipe(rename(function (path) {
       if(path.basename != 'index') {
         path.dirname += '/' + path.basename;
@@ -81,7 +84,7 @@ gulp.task('server', function() {
   gulp.src(config.pages.dest)
     .pipe(server({
       livereload: true,
-      open: true
+      open: true,
     }));
 });
 
@@ -96,7 +99,10 @@ gulp.task('watch', function () {
       }
     }
   });
-  gulp.watch(config.pages.src, ['render']);
+  gulp.watch(config.pages.src, ['render']).on('change', function (event) {
+    // Clean destination folder
+    del.sync([config.pages.dest + '/**/*', '!public/assets/**']);
+  });
   gulp.watch(config.templates.src, ['render']);
   gulp.watch(config.data, ['render']);
 });

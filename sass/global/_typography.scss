@@ -1,0 +1,144 @@
+/*------------------------------------*\
+    #TYPOGRAPHY
+\*------------------------------------*/
+
+/**
+ * Lead it, track it, kern it
+ * Keep it in vertical rhythm
+ */
+
+/**
+ * Document's base
+ */
+
+body {
+  font-feature-settings: 'onum', 'zero', 'dlig', 'kern';
+  font-size: p100(size(font), 16);
+  line-height: ratio(size(line), size(font), true);
+}
+
+/**
+ * Headings
+ */
+
+$font-sizes:  ('h1', 32),
+              ('h2', 20),
+              ('h3', 18),
+              ('h4, h5, h6', 16);
+
+@each $element, $font-size in $font-sizes {
+  #{$element} {
+    font-size: em($font-size);
+    line-height: ratio(size(line), $font-size, true);
+    margin: 0 auto em(size(line), $font-size);
+  }
+}
+
+/**
+ * Block level elements
+ */
+
+p, ul, ol, dl, figure, pre, blockquote {
+  hyphens: auto;
+  margin: 0 auto em(size(line));
+}
+
+/**
+ * Monospace elements
+ */
+
+code, kbd, pre, samp {
+// TODO
+// this doesn't work, see normalize
+  font-size: em(size(font));
+  line-height: ratio(size(line), size(font), true);
+}
+
+/**
+ * Nested list
+ */
+
+ol, ul {
+  ol, ul {
+    margin: 0;
+  }
+}
+
+ul, ol {
+  padding-left: em(size(line));
+}
+
+dd {
+  margin-left: em(size(line));
+}
+
+/**
+ * Image
+ */
+
+img {
+  display: block;
+}
+
+/**
+ * Form
+ */
+
+form {
+  height: em(size(line)*2);
+}
+
+// input {
+  // &[type=text], &[type=password], &[type=submit] {
+    // box-sizing: border-box;
+    // height: em(size(line));
+    // margin-bottom: em(size(line)/2);
+    // padding: 0 em(size(line)/4);
+  // }
+
+  // &::-moz-focus-inner {
+    // TODO: fix strange input submit firefox comportment see normalize focusring maybe
+  // }
+// }
+
+
+
+/**
+ * Table
+ */
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0 em(2);
+}
+
+/**
+ * Horizontal rule
+ */
+
+hr {
+  background: color(border);
+  border: 0;
+  height: em(size(border));
+  margin: 0 auto em(size(line) - size(border));
+}
+
+
+/**
+ * Ruby annotation
+ */
+ 
+ruby {
+  line-height: em(2*size(line));
+}
+
+rt, rtc {
+  font-size: em(11);
+}
+
+rtc {
+  ruby-position: under;
+}

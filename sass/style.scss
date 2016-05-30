@@ -1,25 +1,40 @@
-// Style
-// =====
+/*------------------------------------*\
+    #STYLE
+\*------------------------------------*/
 
-// Core
-// ----
+/**
+ * CORE
+ * Configuration settings 
+ */
+
 @import "core/variables";
+@import "core/functions";
 @import "core/mixins";
 
-// Atoms
-// -----
-@import "atoms/normalize";
-@import "atoms/body";
-@import "atoms/headings";
-@import "atoms/hr";
+/**
+ * GLOBAL
+ * Base elements styling
+ */
 
-// Molecules
-// ---------
-@import "molecules/hero";
-@import "molecules/label";
-@import "molecules/media";
-@import "molecules/panel";
+@import "global/normalize";
+@import "global/body";
+@import "global/typography";
 
-// Organisms
-// ---------
-@import "organisms/pricing";
+/**
+ * OBJECTS
+ * Abstract independant classes
+ */
+
+@import "objects/button";
+@import "objects/hero";
+@import "objects/label";
+@import "objects/media";
+@import "objects/panel";
+@import "objects/vessel";
+
+/**
+ * SECTIONS
+ * Concrete specific classes
+ */
+
+@import "sections/pricing";

@@ -1,6 +1,11 @@
-// Hero unit
-// =========
-// A simple and wide content embellished by a background cover
+/*------------------------------------*\
+    #HERO
+\*------------------------------------*/
+
+/**
+ * Wide content embellished by a background cover
+ */
+
 /*
   <div class="hero">
     <div class="hero__cover">
@@ -11,18 +16,20 @@
 */
 
 $b: '.hero';
-$color-layer: rgba(0, 0, 0, 0.25);
+$color-layer: rgba(color(black), 0.25);
 
 #{$b} {
   align-items: center;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  padding: 5*$width-space $width-space;
+  padding: size(line);
   position: relative;
 
-  // Cover
-  // Example: image background
+  /**
+   * E: cover
+   * Example: image background
+   */
 
   &#{$e}cover {
     background-repeat: no-repeat;
@@ -35,8 +42,10 @@ $color-layer: rgba(0, 0, 0, 0.25);
     width: 100%;
   }
 
-  // Layer
-  // Example: transparent black to darken image
+  /**
+   * E: layer
+   * Example: transparent black to darken image
+   */
 
   &#{$e}layer {
     background-color: $color-layer;
@@ -48,14 +57,21 @@ $color-layer: rgba(0, 0, 0, 0.25);
     width: 100%;
   }
 
-  // Body
-  // Example: heading + cta
+  /**
+   * E: body
+   * Example: description with a cta
+   */ 
 
   &#{$e}body {
+    color: color(white);
+    margin-top: rem(size(line));
+    position: relative;
   }
 
-  // Height modifier
-  // Default: banner
+  /**
+   * M: height size
+   * Default: banner
+   */ 
   
   &#{$m}half {
     min-height: 50vh;

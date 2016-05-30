@@ -1,0 +1,109 @@
+/*------------------------------------*\
+    #FUNCTIONS
+\*------------------------------------*/
+
+/**
+ * STRIP-UNIT
+ * Return a number without his unit
+ */
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+/**
+ * EM
+ * Convert pixels to em
+ */
+
+@function em($px, $base: size(font)) {
+  $px:    strip-unit($px);
+  $base:  strip-unit($base);
+  @return $px / $base * 1em;
+}
+
+/**
+ * REM
+ * Convert pixels to root em
+ */
+
+@function rem($px, $base: size(font)) {
+  $px:    strip-unit($px);
+  $base:  strip-unit($base * ratio(16, $base));
+  @return $px / $base * 1rem;
+}
+
+/**
+ * P100
+ * Convert pixels to percentage
+ */
+
+@function p100($px, $base: size(font)) {
+  $px:    strip-unit($px) * 100;
+  $base:  strip-unit($base);
+  @return $px / $base * 1%;
+}
+
+/**
+ * RATIO
+ * Return the ratio of two numbers
+ */
+
+@function ratio($px, $base: size(font), $sup1: false) {
+  @if ($sup1) {
+    $px-initial: $px;
+    @while ($px < $base) {
+      $px: $px + $px-initial;
+    }
+  }
+  @return strip-unit($px / $base);
+}
+
+/**
+ * COLOR
+ * Get a color of colors map
+ */
+
+ @function color($keys...) {
+  $get: $colors;
+  @each $key in $keys {
+    @if map_has_key($get, $key) {
+      $get: map-get($get, $key);
+    } @else {
+      @return $key;
+    }
+  }
+  @return $get;
+}
+
+/**
+ * SIZE
+ * Get a size of sizes map
+ */
+
+@function size($keys...) {
+  $get: $sizes;
+  @each $key in $keys {
+    $get: map-get($get, $key);
+  }
+  @return $get;
+}
+
+/**
+ * CONTRAST
+ * Get contrast color base on an approximate brightness
+ */
+
+@function contrast($color, $light: color(white), $dark: color(black)) {
+
+ $brightness: percentage((red($color) + green($color) + blue($color)) / (255 * 3));
+
+  @if $brightness < 65% {
+    @return $light;
+  } @else {
+    @return $dark;
+  }
+}

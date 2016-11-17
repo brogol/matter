@@ -54,4 +54,8 @@ $b: '.vessel';
   &#{$m}reverse {
     flex-direction: row-reverse;
   }
+
+  &#{$m}dive {
+    flex-direction: column;
+  }
 }

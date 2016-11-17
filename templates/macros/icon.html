@@ -1,0 +1,5 @@
+{% macro use(slug, class) %}
+<svg class="icon icon--{{ slug }} {{ class }}">
+  <use xlink:href="#icon-{{ slug }}"/>
+</svg>
+{% endmacro %}

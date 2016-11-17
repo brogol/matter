@@ -63,6 +63,19 @@
 }
 
 /**
+ * DIR
+ * Get a size of sizes map
+ */
+
+@function dir($keys...) {
+  $get: $dir;
+  @each $key in $keys {
+    $get: map-get($get, $key);
+  }
+  @return $get;
+}
+
+/**
  * COLOR
  * Get a color of colors map
  */

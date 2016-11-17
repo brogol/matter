@@ -41,3 +41,16 @@
     -moz-osx-font-smoothing: auto;
   }
 }
+
+/**
+ * FONT-FACE-SRC
+ * Generate src for custom fonts src with modern formats
+ */
+
+@mixin font-face-src($dir, $name) {
+    src: url('#{$dir}#{$name}.eot');
+    src: url('#{$dir}#{$name}.eot?#iefix') format('embedded-opentype'),
+         url('#{$dir}#{$name}.woff') format('woff'),
+         url('#{$dir}#{$name}.svg#webfont') format('svg'),
+         url('#{$dir}#{$name}.ttf') format('truetype');
+}

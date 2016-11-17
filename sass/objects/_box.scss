@@ -1,0 +1,63 @@
+/*------------------------------------*\
+    #BOX
+\*------------------------------------*/
+
+/**
+ * A block with a background
+ */
+
+/*
+  <div class="box">
+    <div class="box__body">
+    </div>
+  </div>
+*/
+
+$b: '.box';
+
+#{$b} {
+  align-items: center;
+  background-color: color(bg-content);
+  border-radius: size(radius);
+  display: flex;
+  margin-bottom: em(size(line));
+  justify-content: center;
+
+  /**
+   * E: body
+   * Content of the box
+   */
+
+  #{$b}#{$e}body {
+    margin: 0;
+    padding: em(size(line));
+  }
+
+  /**
+   * M: panel
+   * Example : container of a button
+   */
+
+  &#{$m}panel {
+    flex-direction: column;
+    justify-content: space-between;
+    padding: em(size(line)) 0;
+
+    #{$b}#{$e}body {
+      flex-grow: 1;
+      padding: 0;
+    }
+  }
+
+  /**
+   * M: background
+   * Default: color(bg-content)
+   */
+
+  @each $name, $color in map-merge(map-get($colors, brand), $color-identity) {
+    &#{$m}#{$name} {
+      background-color: $color;
+      color: contrast($color);
+    }
+  }
+}

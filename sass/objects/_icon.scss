@@ -1,0 +1,31 @@
+/*------------------------------------*\
+    #ICON
+\*------------------------------------*/
+
+/**
+ * Use of inline SVG icons
+ */
+
+/*
+  <svg class="icon icon--name">
+    <use xlink:href="#icon--name"/>
+  </svg>
+*/
+
+$b: '.icon';
+
+#{$b} {
+  display: inline-block;
+  color: color(black);
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  fill-rule: evenodd;
+  vertical-align: middle;
+
+  &#{$e}defs {
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+}

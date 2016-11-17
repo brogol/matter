@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+
+{% block body %}
+  <ul class="vessel">
+    {% for page in site.pages %}
+      <li class="vessel__item">
+        <a href="{{ site.baseUrl }}{{ page.slug }}">{{ page.name }}</a>
+      </li>
+    {% else %}
+      <li>No pages</li>
+    {% endfor %}
+  </ul>
+  {% block content %}{% endblock %}
+{% endblock %}

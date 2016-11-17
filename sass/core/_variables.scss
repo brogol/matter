@@ -12,6 +12,17 @@ $e: '__' !default; // Element separator
 $m: '--' !default; // Modifier separator
 
 /**
+ * DIR
+ * Directory paths for assets
+ */
+
+$dir: (
+  fonts:  '../fonts/',
+  img:    '../img/',
+  docs:   '../docs/'
+) !default;
+
+/**
  * COLORS
  * Let's get visual
  */
